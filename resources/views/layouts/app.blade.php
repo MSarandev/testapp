@@ -34,9 +34,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <!-- Custom ribbon items -->
-                        <li><a class="nav-link" href="{{ route('companies') }}">{{ __('Companies') }}</a></li>
-                        <li><a class="nav-link" href="{{ route('employees') }}">{{ __('Employees') }}</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -69,6 +66,8 @@
         </nav>
 
         <main class="py-4">
+            <!-- Include custom messages script -->
+            @include('inc.message')
             @yield('content')
         </main>
     </div>

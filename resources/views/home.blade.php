@@ -13,10 +13,10 @@
                             <p class="lead">What are we working on today?</p>
                             <hr class="my-4">
                             <p class="lead">
-                                <a class="btn btn-primary btn-lg" href="{{ route('companies') }}"
-                                   role="button" href="{{ url('/companies') }}">Companies</a>
-                                <a class="btn btn-primary btn-lg" href="{{ route('employees') }}"
-                                   role="button" href="{{ url('/employees') }}">Employees</a>
+                                <a class="btn btn-primary btn-lg"
+                                   role="button" href="/companies">Companies</a>
+                                <a class="btn btn-primary btn-lg"
+                                   role="button" href="#">Employees</a>
                             </p>
                         </div>
 

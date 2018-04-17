@@ -36,6 +36,10 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Custom links
-Route::get('/companies', 'HomeController@companies')->name('companies');
-Route::get('/employees', 'HomeController@employees')->name('employees');
+// Generic routes
+Route::get('companies', 'CompaniesController@index')->name('companies');
+//Route::get('employees', 'HomeController@employees')->name('employees');
+
+// Controller routes
+Route::resource('companies', 'CompaniesController');
+Route::resource('employees', 'EmployeesController');

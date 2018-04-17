@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
     /**
@@ -26,14 +24,8 @@ class HomeController extends Controller
         return view('home');
     }
 
-    // Custom path declaration
     public function companies()
     {
-        return view('companies');
-    }
-
-    public function employees()
-    {
-        return view('employees');
+        return view('companies.index');
     }
 }

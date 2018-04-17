@@ -10400,8 +10400,13 @@ a.text-dark:focus {
   height: 500px;
 }
 
-#right_navi_col {
+#main_navi_col {
   background-color: #efeeff;
   height: 500px;
+}
+
+#company_list {
+  max-height: 450px;
+  overflow-y: auto;
 }
 
