@@ -34,6 +34,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li><a class="nav-link" href="/companies">{{ __('Companies') }}</a></li>
+                        <li><a class="nav-link" href="/employees">{{ __('Employees') }}</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -48,6 +50,10 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <!-- Custom shortcuts -->
+                                    <a class="dropdown-item" href="/companies/create">{{ __('Add a company') }}</a>
+                                    <a class="dropdown-item" href="/#">{{ __('Add an employee') }}</a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

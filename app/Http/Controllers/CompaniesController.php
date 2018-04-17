@@ -90,7 +90,11 @@ class CompaniesController extends Controller
      */
     public function edit($id)
     {
-        //
+        // fetch by id
+        $company = Company::find($id);
+
+        // return the view
+        return view('companies.edit')->with('company', $company);
     }
 
     /**
@@ -102,7 +106,29 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Called by the form
+
+        // Validate
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required',
+            'website' => 'required'
+        ]);
+
+        // Insert into the DB
+        $company = Company::Find($id);
+
+        // store the values in the object
+        $company->name = $request->input('name');
+        $company->email = $request->input('email');
+        $company->website = $request->input('website');
+        $company->logo = 'none'; // TODO: Fix this
+
+        // Save
+        $company->save();
+
+        // redirect
+        return redirect('/companies')->with('success', 'Company details updated');
     }
 
     /**
@@ -113,6 +139,13 @@ class CompaniesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // find the company
+        $company = Company::find($id);
+
+        // delete
+        $company->delete();
+
+        // redirect
+        return redirect('/companies')->with('success', 'Company deleted');
     }
 }
