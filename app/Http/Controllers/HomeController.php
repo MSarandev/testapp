@@ -25,4 +25,15 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    // Custom path declaration
+    public function companies()
+    {
+        return view('companies');
+    }
+
+    public function employees()
+    {
+        return view('employees');
+    }
 }
