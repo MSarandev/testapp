@@ -13,4 +13,10 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
 
+    // Define the inverse 1-1 relationship with the employee
+    public function employee()
+    {
+        return $this->belongsTo('App\Http\Employee', 'name', 'company');
+    }
+
 }

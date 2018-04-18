@@ -20,10 +20,10 @@
                                              height="150">
                                     </div>
                                     <h1>{{$company->name}}</h1>
-                                    <p>Email: {{ $company->email }}</p>
-                                    <p>Website:
+                                    <h4>Email: {{ $company->email }}</h4>
+                                    <h5>Website:
                                         <a href="{{ $company->website }}">{{ $company->website }}</a>
-                                    </p>
+                                    </h5>
                                     <hr>
                                     <p>Last modified: {{$company->updated_at}}</p>
                                 </li>
