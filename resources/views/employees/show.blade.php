@@ -9,7 +9,7 @@
                         <div class="col-xl" id="main_navi_col">
                             <div class="row justify-content-center mb-md-3 mt-3" id="create_row">
                                 <a class="btn btn-outline-dark"
-                                   role="button" href="/companies">Back</a>
+                                   role="button" href="/employees">Back</a>
                             </div>
                             <ul class="list-group">
                                 <li class="list-group-item">
@@ -26,7 +26,8 @@
                                    role="button" href="/employees/{{$employee->id}}/edit">Update</a>
 
                                 {!! Form::open(['action' => ['EmployeesController@destroy', $employee->id],
-                                                'method' => 'POST']) !!}
+                                                'method' => 'POST',
+                                                'id'     => 'form_delete']) !!}
 
                                 {{Form::hidden('_method', 'DELETE')}}
 
