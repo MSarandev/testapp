@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Company;
 use Illuminate\Http\Request;
 
+
 class CompaniesController extends Controller
 {
     /**
@@ -61,6 +62,9 @@ class CompaniesController extends Controller
 
         // Save
         $company->save();
+
+        // Send email notification
+
 
         // redirect
         return redirect('/companies')->with('success', 'Company added');

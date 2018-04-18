@@ -37,7 +37,7 @@
 
                                     {{Form::hidden('_method', 'DELETE')}}
 
-                                    {{Form::submit('Delete', ['class' => 'btn w-100 btn-danger mt-5'])}}
+                                    {{Form::submit('Delete', ['class' => 'btn w-100 btn-danger mt-2'])}}
                                 {!! Form::close() !!}
                             </ul>
                         </div>

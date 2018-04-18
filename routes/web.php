@@ -43,3 +43,7 @@ Route::get('companies', 'CompaniesController@index')->name('companies');
 // Controller routes
 Route::resource('companies', 'CompaniesController');
 Route::resource('employees', 'EmployeesController');
+
+// NOT SUPPORTED
+//Email
+//Route::post('/send', 'EmailController@send');

@@ -9,7 +9,7 @@
                     <div class="col-xl" id="main_navi_col">
 
                         <div class="jumbotron justify-content-center">
-                            <h1 class="display-4">Welcome back</h1>
+                            <h1 class="display-4">Hi {{Auth::user()->name}}</h1>
                             <p class="lead">What are we working on today?</p>
                             <hr class="my-4">
                             <p class="lead">

@@ -20,7 +20,7 @@
             <hr class="my-4">
             @if (Route::has('login'))
                 @auth
-                    <p>Welcome back</p>
+                    <p>Welcome back {{ Auth::user()->name }}</p>
                 @else
                     <p>Please login</p>
                 @endauth
