@@ -24,7 +24,10 @@
                                             </a>
 
                                             <!-- Fetch the employer -->
-                                            <h5>At: {{ $e1::find($e1->id)->company }}</h5>
+                                            <a href="/companies/{{DB::table('companies')->where('name',
+                                                            $e1::find($e1->id)->company)->value('id')}}">
+                                                <h5>At: {{$e1::find($e1->id)->company}}</h5>
+                                            </a>
 
                                             <p>{{ $e1->email }}</p>
                                             <p>{{ $e1->phone }}</p>

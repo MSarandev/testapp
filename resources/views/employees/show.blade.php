@@ -14,7 +14,13 @@
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <h1><em>{{$employee->firstName}},{{$employee->lastName}}</em></h1>
-                                    <h3>Works at: {{$employee::find($employee->id)->company }}</h3>
+                                    <!-- Fetch the employer -->
+                                    <h5>Works at:
+                                        <a href="/companies/{{DB::table('companies')->where('name',
+                                                            $employee::find($employee->id)->company)->value('id')}}">
+                                            {{$employee::find($employee->id)->company}}
+                                        </a>
+                                    </h5>
                                     <h5>Email: {{ $employee->email }}</h5>
                                     <h5>Phone: {{ $employee->phone }}</h5>
                                     <hr>
