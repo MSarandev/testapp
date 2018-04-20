@@ -14,10 +14,19 @@
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <div class="row justify-content-center">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png"
-                                             class="border border-primary rounded-circle"
-                                             width="150"
-                                             height="150">
+                                        @if($company->logo == 'none')
+                                            <!-- No logo found, add placeholder -->
+                                            <img src="/storage/no_image.jpeg"
+                                                 class="border border-primary rounded-circle"
+                                                 width="150"
+                                                 height="150">
+                                        @else
+                                            <!-- Load logo by id -->
+                                            <img src="/storage/{{$company->id}}.png"
+                                                 class="border border-primary rounded-circle"
+                                                 width="150"
+                                                 height="150">
+                                        @endif
                                     </div>
                                     <h1>{{$company->name}}</h1>
                                     <h4>Email: {{ $company->email }}</h4>

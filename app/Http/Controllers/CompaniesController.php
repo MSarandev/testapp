@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class CompaniesController extends Controller
@@ -16,7 +17,7 @@ class CompaniesController extends Controller
     public function index()
     {
         // get all companies
-        $companies = Company::orderby('name', 'asc')->paginate(3);
+        $companies = Company::orderby('name', 'asc')->paginate(5);
 
         // load the view and parse the data
         return view('companies.index')
@@ -48,7 +49,8 @@ class CompaniesController extends Controller
         $this->validate($request,[
                 'name' => 'required',
                 'email' => 'required',
-                'website' => 'required'
+                'website' => 'required',
+                'image' => 'required|image|mimes:png|dimensions:min_width=100,min_height=100',
             ]);
 
         // Insert into the DB
@@ -58,13 +60,22 @@ class CompaniesController extends Controller
         $company->name = $request->input('name');
         $company->email = $request->input('email');
         $company->website = $request->input('website');
-        $company->logo = 'none'; // TODO: Fix this
+        $company->logo = $request->file('image');
+
 
         // Save
         $company->save();
 
-        // Send email notification
+        // fetch the id
+        $c_id = DB::table('companies')->where('name',
+                            $company->name)->value('id');
 
+        $imageName = $c_id . '.' .
+            $request->file('image')->getClientOriginalExtension();
+
+        $request->file('image')->move(
+            base_path() . '/storage/app/public/', $imageName
+        );
 
         // redirect
         return redirect('/companies')->with('success', 'Company added');
@@ -116,7 +127,8 @@ class CompaniesController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required',
-            'website' => 'required'
+            'website' => 'required',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         // Insert into the DB
@@ -126,7 +138,13 @@ class CompaniesController extends Controller
         $company->name = $request->input('name');
         $company->email = $request->input('email');
         $company->website = $request->input('website');
-        $company->logo = 'none'; // TODO: Fix this
+        $company->logo = $request->file('image');
+
+        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+
+        $destinationPath = public_path('/storage/app/public');
+
+        $image->move($destinationPath, $input['imagename']);
 
         // Save
         $company->save();
