@@ -34,8 +34,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a class="nav-link" href="/companies">{{ __('Companies') }}</a></li>
-                        <li><a class="nav-link" href="/employees">{{ __('Employees') }}</a></li>
+                        @if (Route::has('login'))
+                            @auth
+                                <li><a class="nav-link" href="/companies">{{ __('Companies') }}</a></li>
+                                <li><a class="nav-link" href="/employees">{{ __('Employees') }}</a></li>
+                            @endauth
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

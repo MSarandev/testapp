@@ -25,7 +25,11 @@
             <br>
             {!! Form::file('image', null) !!}
         </div>
-            {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
-        {!! Form::close() !!}
+        <div class="row justify-content-center mb-md-3 mt-3" id="create_row">
+            {{Form::submit('Submit', ['class' => 'btn btn-outline-primary'])}}
+            {!! Form::close() !!}
+            <a class="btn btn-outline-danger ml-3"
+               role="button" href="/companies">Back</a>
+        </div>
     </div>
 @endsection

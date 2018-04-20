@@ -10400,8 +10400,14 @@ a.text-dark:focus {
 }
 
 #main_navi_col {
-  background-color: #efeeff;
-  height: 500px;
+  /* Gradient from http://www.colorzilla.com/gradient-editor/ */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, left bottom, from(#e5eef9), to(rgba(242, 248, 252, 0)));
+  background: linear-gradient(to bottom, #e5eef9 0%, rgba(242, 248, 252, 0) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  border-radius: 15px;
+  height: auto;
 }
 
 #company_list {
